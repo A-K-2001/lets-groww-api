@@ -12,6 +12,9 @@ const InvestorSchema = new mongoose.Schema(
         amount:{type:Number, required:true },
         
         investedbefore:{type:Boolean, default:false },
+        verifed:{type:Boolean,default:false},
+        
+
 
 
 

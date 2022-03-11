@@ -90,8 +90,9 @@ app.use("/api/message",messageRoute);
 //     console.log("backend is running...");
 // });
 
-server.listen("5000",()=>{
+server.listen(process.env.PORT || 5000,()=>{
   console.log("backend is running...");
 });
 
 // Anil kumar
+// set git remote heroku to https://git.heroku.com/letsgroww.git
