@@ -12,7 +12,9 @@ const CompanySchema = new mongoose.Schema(
         sales:{type:Number, required:true },
         profit:{type:Number, required:true },
         equity:{type:Number, required:true },
+        year:{type:Number},
         evolution:{type:Number, required:true },
+        verifed:{type:Boolean,default:false},
 
         isAdmin:{
           type:Boolean,required:false,default:false 
