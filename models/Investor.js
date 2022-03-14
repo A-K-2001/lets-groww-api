@@ -7,7 +7,8 @@ const InvestorSchema = new mongoose.Schema(
         email: { type: String, required: true, unique: true },
         password: { type: String, required: true },
         profileImg: { type: String, default: "" },
-
+        gender:{ type:String,default:"M"},
+        
         category:{type:Array , required:true},
         amount:{type:Number, required:true },
         
