@@ -36,9 +36,9 @@ router.post("/otp", async (req, res) => {
     try{
 
         const account = await Otp.findOne({userid:req.body.userid,type:req.body.type});
-        // console.log(account);
-        if(account.otp=== req.body.otp){
-
+    
+        if(account.otp == req.body.otp){
+          
             if(account.type === "in"){
                 
                 const updateinverstor = await Investor.findByIdAndUpdate(req.body.userid,{
@@ -83,6 +83,9 @@ router.post("/otp", async (req, res) => {
 
 router.post("/companyregister", async (req, res) => {
 
+  
+
+
     try {
 
 
@@ -113,14 +116,14 @@ router.post("/companyregister", async (req, res) => {
             
         });
 
-        console.log(company._id);
+        // console.log(company._id);
 
         const newOtp = new Otp({
             userid:company._id,
             otp:otp,
             type:"co"
         });
-
+        
         const savedotp = await newOtp.save();
 
         res.status(200).json(company);
@@ -164,11 +167,13 @@ router.post("/companylogin", async (req, res) => {
 
 router.post("/investorregister", async (req, res) => {
 
+
+
     try {
 
         
         const otp = `${Math.floor(1000 + Math.random() * 999)}`;
-        console.log(otp);
+    
 
         const salt = await bcrpyt.genSalt(10);
         const hashedPassword = await bcrpyt.hash(req.body.password, salt);
@@ -178,10 +183,13 @@ router.post("/investorregister", async (req, res) => {
             password: hashedPassword,
             category: req.body.category,
             amount: req.body.amount,
+            gender:req.body.gender,
+            investedbefore:req.body.investedbefore,
         });
 
+        
         const investor = await newInvestor.save();
-
+      
 
         let info = await transporter.sendMail({
             form: 'letsgroww2001@outlook.com',
@@ -191,13 +199,17 @@ router.post("/investorregister", async (req, res) => {
             
         });
 
+     
+
         const newOtp = new Otp({
             userid:investor._id,
             otp:otp,
             type:"in"
         });
 
+
         const savedotp = await newOtp.save();
+      
 
         res.status(200).json(investor);
 
