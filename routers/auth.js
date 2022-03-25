@@ -20,7 +20,7 @@ let transporter = nodemailer.createTransport({
    
     auth: {
         user: "pubgdada424@gmail.com",
-        pass: "anilkumar18"
+        pass: "anilkumar188"
     },
 });
 
@@ -98,6 +98,7 @@ router.post("/companyregister", async (req, res) => {
             username: req.body.username,
             email: req.body.email,
             password: hashedPassword,
+            profileImg:req.body.profileImg,
             year: req.body.year,
             category: req.body.category,
             sales: req.body.sales,
@@ -181,6 +182,7 @@ router.post("/investorregister", async (req, res) => {
             username: req.body.username,
             email: req.body.email,
             password: hashedPassword,
+            profileImg:req.body.profileImg,
             category: req.body.category,
             amount: req.body.amount,
             gender:req.body.gender,
