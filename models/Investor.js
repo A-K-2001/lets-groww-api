@@ -14,10 +14,7 @@ const InvestorSchema = new mongoose.Schema(
         
         investedbefore:{type:Boolean, default:false },
         verifed:{type:Boolean,default:false},
-        
-
-
-
+      
 
         isAdmin:{
           type:Boolean,required:false,default:false 
