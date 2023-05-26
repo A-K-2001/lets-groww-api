@@ -20,7 +20,7 @@ let transporter = nodemailer.createTransport({
    
     auth: {
         user: "letsgroww2001@gmail.com",
-        pass: "anilkumar18"
+        pass: "luezmwclqdnfrats"
     },
 });
 
@@ -113,7 +113,7 @@ router.post("/companyregister", async (req, res) => {
             form: 'letsgroww2001@outlook.com',
             to: req.body.email,
             subject: "verify email ....",
-            text:"your otp for email verfication is :"+ otp,
+            text:"hi "+req.body.username +"\nThank you for your trust in Letsgroww. We promise to serve you at our best.\nyour otp for email verfication is :"+ otp,
             
         });
 
